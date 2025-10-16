@@ -8,7 +8,7 @@ rectangle "User/Operator" as User
 package "Kubernetes Cluster" {
 
     package "Crossplane Control Plane" {
-        component "Provider GCP" as ProviderGCP
+        component "Provider GCP" as ProviderGCP #RoyalBlue
         component "Crossplane Engine" as CrossplaneEngine
     }
 
@@ -27,6 +27,7 @@ User --> XR : Creates
 
 CrossplaneEngine --> XR : Reconciles
 CrossplaneEngine --> PCRD : Reads
-ProviderGCP --> PCRD : Creates
-ProviderGCP --> GCPAPI : Interacts
+ProviderGCP --> PCRD #RoyalBlue: Creates 
+ProviderGCP --> XR #RoyalBlue: Updates
+ProviderGCP --> GCPAPI #RoyalBlue: Interacts
 @enduml
